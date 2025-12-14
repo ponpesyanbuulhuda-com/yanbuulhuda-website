@@ -1,0 +1,581 @@
+/* --- 1. VARIABEL & RESET DASAR --- */
+:root {
+    /* Palet Warna Utama */
+    --color-primary: #006400; /* Hijau Tua (Dark Green/Forest Green) - Ketenangan */
+    --color-secondary: #FFD700; /* Emas (Gold) - Aksen Tradisional */
+    --color-accent: #28a745; /* Hijau Cerah - Aksen Tombol */
+    
+    /* Warna Dasar */
+    --color-text: #333333; /* Abu-abu Gelap untuk Teks */
+    --color-light: #f8f9fa; /* Latar Belakang Terang */
+    --color-background: #ffffff; /* Latar Belakang Putih */
+    --color-krem: #f9f6f1; /* Krem Lembut untuk Section yang Diberi Warna */
+    
+    /* Tipografi */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Spasi */
+    --spacing-large: 80px;
+    --spacing-medium: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-background);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 2. TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+/* Garis bawah dekoratif untuk judul utama */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin: 10px auto 0;
+}
+
+.section-padded {
+    padding: var(--spacing-large) 0;
+}
+
+.bg-light {
+    background-color: var(--color-krem);
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: var(--spacing-medium);
+    font-size: 1.1em;
+    color: #555;
+}
+
+
+/* --- 3. HEADER & NAVIGASI --- */
+header {
+    background-color: var(--color-background);
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    height: 50px; /* Ukuran logo */
+}
+
+#main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+#main-nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 15px 15px;
+    display: block;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#main-nav ul li a:hover {
+    color: var(--color-accent);
+}
+
+.nav-toggle {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+
+/* --- 4. BUTTONS --- */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 5px 10px 5px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid transparent;
+}
+
+.primary-btn {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border-color: var(--color-primary);
+}
+
+.primary-btn:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.secondary-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+
+/* --- 5. HERO SECTION / SLIDER --- */
+#home.hero {
+    position: relative;
+    height: 80vh; /* Tinggi yang baik untuk hero section */
+    overflow: hidden;
+    color: var(--color-background);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slider img.active {
+    opacity: 1;
+}
+
+/* Overlay untuk kontras teks */
+#home.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    color: var(--color-background);
+    font-size: 3.5em;
+    margin-bottom: 0.1em;
+}
+
+.hero-content h3 {
+    color: var(--color-secondary);
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+}
+
+
+/* --- 6. ABOUT, PROGRAM, EKSTRAKURIKULER GRIDS --- */
+.about-grid,
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: var(--spacing-medium);
+}
+
+/* Styling untuk setiap item/kartu */
+.about-item,
+.program-item {
+    background: var(--color-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--color-primary);
+}
+
+.program-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.program-item h3 {
+    font-size: 1.4em;
+    margin-top: 0.5em;
+}
+
+.icon-large {
+    font-size: 3em;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+}
+
+/* Style untuk daftar keunggulan di About */
+.about-item ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+}
+
+.about-item ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+}
+
+.about-item ul li .fas {
+    color: var(--color-accent);
+    margin-right: 10px;
+}
+
+
+/* --- 7. GALERI --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+
+/* --- 8. PENDAFTARAN (FORMULIR) --- */
+.registration-info {
+    padding: 30px;
+    background-color: var(--color-background);
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.registration-info h3 {
+    color: var(--color-primary);
+    margin-top: 1em;
+}
+
+.registration-info ul, .registration-info ol {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.registration-info ul li, .registration-info ol li {
+    margin-bottom: 8px;
+}
+
+.registration-info ul li .fas {
+    color: var(--color-accent);
+    margin-right: 5px;
+}
+
+.text-highlight {
+    font-weight: 700;
+    color: #cc0000; /* Merah untuk penekanan biaya */
+}
+
+/* Form Styling */
+#registrationForm {
+    background-color: var(--color-background);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: var(--font-body);
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 100, 0, 0.2);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: auto;
+}
+
+.checkbox-group label a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+.mt-3 {
+    margin-top: 20px;
+}
+.text-success {
+    color: var(--color-accent) !important;
+}
+
+
+/* --- 9. KONTAK & FOOTER --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Info Kontak 1 bagian, Peta 1.5 bagian */
+    gap: 40px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    color: var(--color-accent);
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.google-map iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--color-background);
+    transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 0.8;
+}
+
+.facebook { background-color: #3b5998; }
+.instagram { background-color: #e1306c; }
+.youtube { background-color: #ff0000; }
+
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-social-links a {
+    color: var(--color-background);
+    font-size: 1.2em;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.footer-social-links a:hover {
+    color: var(--color-secondary);
+}
+
+
+/* --- 10. MEDIA QUERIES (RESPONSIVE DESIGN) --- */
+
+/* Untuk Tablet dan Mobile (Layar <= 992px) */
+@media (max-width: 992px) {
+    /* Header */
+    #main-nav {
+        display: none; /* Sembunyikan navigasi utama secara default di mobile */
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Di bawah header */
+        left: 0;
+        background-color: var(--color-background);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    #main-nav.active {
+        display: block;
+    }
+
+    #main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #main-nav ul li a {
+        padding: 10px 20px;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-toggle {
+        display: block; /* Tampilkan tombol toggle */
+    }
+
+    /* Hero */
+    #home.hero {
+        height: 60vh;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content h3 {
+        font-size: 1.4em;
+    }
+
+    /* Grids */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Satu kolom */
+    }
+}
+
+/* Untuk Mobile Kecil (Layar <= 576px) */
+@media (max-width: 576px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    
+    .btn {
+        display: block;
+        margin: 10px 0;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-social-links {
+        margin-top: 15px;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+    }
+}
