@@ -1,0 +1,598 @@
+/* General Styling & Variables */
+:root {
+    --primary-color: #28a745; /* Blue for reliability/education */
+    --secondary-color: #28a745; /* Green for growth/spirituality */
+    --accent-color: #ffc107; /* Yellow for warmth/light */
+    --text-color: #333;
+    --light-bg: #87ebe6f8;
+    --white-bg: #aceeebf8;
+    --border-color: #8d8d8d;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* Header */
+header {
+    background-color: var(--white-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.733);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo .site-logo {
+    height: 60px; /* Ukuran tinggi logo */
+    width: auto;
+    max-width: 400px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Tinggi hero section */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hero-slider img.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative; /* Agar di atas gambar slider */
+    z-index: 10;
+    background-color: rgba(53, 52, 52, 0.384); /* Overlay gelap */
+    padding: 150px;
+    border-radius: 10px;
+    max-width: 1000px;
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: rgb(253, 253, 253);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.secondary-btn:hover {
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+/* Section Styling */
+.section-padded {
+    padding: 80px 0;
+}
+
+.section-padded h2 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.bg-light {
+    background-color: var(--white-bg);
+}
+
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.about-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.about-item h3 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+}
+
+.about-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-item ul li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.about-item ul li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+/* Program Grid */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.program-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.program-item:hover {
+    transform: translateY(-5px);
+}
+
+.program-item .icon-large {
+    font-size: 4em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.program-item h3 {
+    font-size: 1.8em;
+    color: var(--secondary-color);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* Registration Section */
+.registration-info {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+}
+
+.registration-info h3 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.registration-info ul, .registration-info ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.registration-info ul li, .registration-info ol li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.registration-info ul li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.text-highlight {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.registration-form-section {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.registration-form-section h3 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="tel"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+    font-size: 0.9em;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    display: inline;
+    font-weight: 400;
+}
+
+.text-success {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+.text-success:hover {
+    text-decoration: underline;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.contact-info h3, .google-map h3 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start; /* Align text to top if multiline */
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.social-icon i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.social-icon.whatsapp { background-color: #25D366; }
+.social-icon.whatsapp:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4); }
+.social-icon.facebook { background-color: #3b5998; }
+.social-icon.facebook:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(59, 89, 152, 0.4); }
+.social-icon.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+.social-icon.instagram:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(220, 39, 67, 0.4); }
+.social-icon.youtube { background-color: #FF0000; }
+.social-icon.youtube:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(255, 0, 0, 0.4); }
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.footer-social-links {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.footer-social-links a {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    opacity: 0.8;
+}
+
+.footer-social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h2 { font-size: 2.8em; }
+    .hero h3 { font-size: 1.5em; }
+    .section-padded h2 { font-size: 2.4em; }
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: row; /* Keep logo and nav toggle side by side */
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none; /* Hide nav by default on small screens */
+        position: absolute;
+        top: 90px; /* Below header */
+        left: 0;
+        width: 100%;
+        background-color: var(--white-bg);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    nav.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-toggle {
+        display: block; /* Show toggle button */
+    }
+
+    .hero { height: 60vh; padding: 60px 20px; }
+    .hero h2 { font-size: 2.2em; }
+    .hero h3 { font-size: 1.3em; }
+
+    .about-grid, .program-grid, .gallery-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-padded { padding: 60px 0; }
+    .section-padded h2 { font-size: 2em; }
+    .section-description { margin-bottom: 30px; }
+
+    .gallery-grid img { height: 180px; }
+
+    .registration-info, .registration-form-section { padding: 25px; }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icon {
+        width: 80%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo .site-logo { height: 50px; max-width: 160px; }
+    .hero h2 { font-size: 1.8em; }
+    .hero h3 { font-size: 1.1em; }
+    .btn { padding: 10px 20px; margin: 8px; }
+    .footer-social-links a { font-size: 1.3em; margin: 0 8px; }
+}
