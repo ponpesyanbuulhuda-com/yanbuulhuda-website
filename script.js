@@ -104,4 +104,79 @@ if (regForm) {
     });
 }
 
+const btnBrosur = document.getElementById('btn-brosur');
+const brosurModal = document.getElementById('brosurModal');
+const closeBrosur = document.getElementById('closeBrosur');
+const whatsappPopup = document.getElementById('whatsappPopup');
+const closeWhatsappPopup = document.querySelector('.whatsapp-popup-close');
+const floatingContactBtn = document.getElementById('floatingContactBtn');
+
+function showWhatsappPopup() {
+    if (whatsappPopup) {
+        whatsappPopup.classList.remove('hidden');
+        whatsappPopup.setAttribute('aria-hidden', 'false');
+    }
+    if (floatingContactBtn) {
+        floatingContactBtn.classList.add('hidden');
+    }
+}
+
+function hideWhatsappPopup() {
+    if (whatsappPopup) {
+        whatsappPopup.classList.add('hidden');
+        whatsappPopup.setAttribute('aria-hidden', 'true');
+    }
+    if (floatingContactBtn) {
+        floatingContactBtn.classList.remove('hidden');
+    }
+}
+
+function closeBrosurModal() {
+    if (brosurModal) {
+        brosurModal.classList.remove('open');
+        brosurModal.setAttribute('aria-hidden', 'true');
+    }
+    sessionStorage.setItem('brosurShown', 'true');
+    showWhatsappPopup();
+}
+
+if (btnBrosur && brosurModal) {
+    btnBrosur.addEventListener('click', (event) => {
+        event.preventDefault();
+        brosurModal.classList.add('open');
+        brosurModal.setAttribute('aria-hidden', 'false');
+    });
+}
+
+if (closeBrosur && brosurModal) {
+    closeBrosur.addEventListener('click', closeBrosurModal);
+
+    brosurModal.addEventListener('click', (event) => {
+        if (event.target === brosurModal) {
+            closeBrosurModal();
+        }
+    });
+}
+
+if (closeWhatsappPopup) {
+    closeWhatsappPopup.addEventListener('click', () => {
+        hideWhatsappPopup();
+    });
+}
+
+if (floatingContactBtn) {
+    floatingContactBtn.addEventListener('click', () => {
+        showWhatsappPopup();
+    });
+}
+
+if (!sessionStorage.getItem('brosurShown')) {
+    if (brosurModal) {
+        brosurModal.classList.add('open');
+        brosurModal.setAttribute('aria-hidden', 'false');
+    }
+} else {
+    showWhatsappPopup();
+}
+
 });
